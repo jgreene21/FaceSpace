@@ -1,4 +1,5 @@
 import React from "react";
+import styled from 'styled-components';
 import { Form, Image, Card } from "semantic-ui-react";
 import { AccountConsumer } from '../providers/AccountProvider';
 import Avatar1 from "./Avatar-Maker (1).png";
@@ -72,7 +73,7 @@ class AccountForm extends React.Component {
             onChange={this.handleChange}
             options={avatarOptions}
           />
-          <Form.Button color="green">Save</Form.Button>
+          <StyledButton as= {Form.Button} color="green">Save</StyledButton>
         </Form>
     )
   }
@@ -124,7 +125,16 @@ const avatarOptions = [
     text: <div><Image src={Avatar6} height="40px" width="40px" />Young Man</div>,
     value: <Card><Image src={Avatar6} wrapped ui={false}/></Card>
   }
-]
+];
+
+const StyledButton = styled.div`
+  display: flex;
+  color:white;
+  padding: 15px;
+  justify-content: center;
+  transition: background 0.2s ease;
+  cursor: pointer;
+`;
 
 
 export default ConnectedAccountForm;
